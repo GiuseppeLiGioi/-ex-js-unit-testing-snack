@@ -3,7 +3,7 @@
 */
     
     
-const {getInitials, createSlug, average, createSlugString, isPalindrome, createSlugTitle} = require("./test-snack.js")
+const {getInitials, createSlug, average, createSlugString, isPalindrome, createSlugTitle, findPostById} = require("./test-snack.js")
     
 
 test('La funzione getInitials restituisce le iniziali di un nome completo.', () => {
@@ -50,7 +50,9 @@ test('La funzione "createSlugTitle" lancia un errore se il titolo è vuoto o non
     expect(() => createSlugTitle("ciao@ciao")).toThrow()
 })
 
-const posts = [
+let posts;
+beforeEach(() => {
+    posts = [
   {
     id: 1,
     title: "Ciao Mondo",
@@ -66,15 +68,13 @@ const posts = [
     title: "Come creare uno slug",
     slug: "come-creare-uno-slug"
   }
-];
+]; 
+})
 
-function findPostById(arrPosts, id){
-    if(isNaN(id)){
-        throw new Error("l'id deve essere un numero intero")
-    }
-    const findPost = arrPosts.find((p) => p.id === parseInt(id));
-    return findPost
-}
+
+afterEach(() => {
+    posts = [];
+})
 
 test('La funzione "findPostById" restituisce il post corretto dato l’array di post e l’id', () => {
     expect(findPostById(posts, 2)).toEqual({id: 2,title: "Introduzione a JavaScript",slug: "introduzione-a-javascript"})

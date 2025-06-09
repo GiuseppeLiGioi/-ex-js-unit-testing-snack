@@ -41,11 +41,20 @@ function createSlugTitle(title){
    
 }
 
+function findPostById(arrPosts, id){
+    if(isNaN(id)){
+        throw new Error("l'id deve essere un numero intero")
+    }
+    const findPost = arrPosts.find((p) => p.id === parseInt(id));
+    return findPost
+}
+
 module.exports = {
     getInitials,
     createSlug,
     average,
     createSlugString,
     isPalindrome,
-    createSlugTitle
+    createSlugTitle,
+    findPostById
 }
