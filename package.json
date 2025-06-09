@@ -1,0 +1,23 @@
+{
+  "name": "-ex-js-unit-testing-snack",
+  "version": "1.0.0",
+  "main": "test-snack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiuseppeLiGioi/-ex-js-unit-testing-snack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GiuseppeLiGioi/-ex-js-unit-testing-snack/issues"
+  },
+  "homepage": "https://github.com/GiuseppeLiGioi/-ex-js-unit-testing-snack#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
