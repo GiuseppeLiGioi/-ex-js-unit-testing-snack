@@ -109,12 +109,25 @@ describe("removePost", () => {
 })
 
 /*
-Snack 9 (Bonus)
+🎯 Snack 10 (Bonus): createSlug() – Incrementare lo slug se esiste già
 Creare un test che verifichi la seguente descrizione:
 
-👉 "Se si tenta di aggiungere un post con un id o uno slug già esistente, la funzione addPost deve lanciare un errore."
-
-📌 Nota:
-
-Gli errori devono essere chiari e distinti, es. "Slug già esistente" e “Id già esistente”.
+👉 "Se viene passato un array di post come secondo argomento, la funzione createSlug incrementa di 1 se lo slug esiste già."
 */
+function createDynamicSlug(slug, arr) {
+    let counter = 0;
+    let slugBase = slug;
+    let newSlug = slug;
+    for (let i = 0; i < arr.length; i++) {
+        if (slug === arr[i].slug) {
+            counter++;
+            newSlug = `${slugBase}-${counter}`
+            i = -1
+        }
+    }
+    return newSlug
+}
+test('Se viene passato un array di post come secondo argomento, la funzione "createDynamicSlug" incrementa di 1 se lo slug esiste già.', () => {
+    const result = createDynamicSlug("ciao-mondo", posts)
+    expect(result).toBe("ciao-mondo-1")
+})
