@@ -49,6 +49,23 @@ function findPostById(arrPosts, id){
     return findPost
 }
 
+function addPost(arrIniziale, nuovoPost){
+    for(let i = 0; i < arrIniziale.length; i++){
+        if(nuovoPost.title === arrIniziale[i].title){
+            throw new Error("impossibile aggiungere! titolo uguale")
+        } else if(nuovoPost.slug === arrIniziale[i].slug ) {
+          throw new Error("impossibile aggiungere! slug uguale")
+    }         
+    }
+    arrIniziale.push(nuovoPost)
+}
+
+function removePost(arrIniziale, idDaRimuovere){
+    return arrIniziale.filter((p) => p.id !== idDaRimuovere)
+     
+
+}
+
 module.exports = {
     getInitials,
     createSlug,
@@ -56,5 +73,7 @@ module.exports = {
     createSlugString,
     isPalindrome,
     createSlugTitle,
-    findPostById
+    findPostById,
+    addPost,
+    removePost
 }
